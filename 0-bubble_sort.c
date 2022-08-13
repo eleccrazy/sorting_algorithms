@@ -28,7 +28,7 @@ void swapper(int *array, int a, int b)
 
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0, j = 0, reduced_size = size - 1;
+	size_t i = 0, j = 0, reduced_size = size - 1, status;
 
 	if (size < 2)
 		print_array(array, size);
@@ -36,17 +36,23 @@ void bubble_sort(int *array, size_t size)
 	{
 		while (i < size)
 		{
+			status = 0;
 			j = 0;
 
-			while (j < reduced_size - i)
+			while (j < reduced_size)
 			{
 				if (array[j] > array[j + 1])
 				{
+					status = 1;
 					swapper(array, j, j + 1);
 					print_array(array, size);
 				}
 				j++;
 			}
+			if (status != 1)
+				break;
+
+			reduced_size--;
 			i++;
 		}
 	}
