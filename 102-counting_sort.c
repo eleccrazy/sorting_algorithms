@@ -15,7 +15,7 @@ void counting_sort(int *array, size_t size)
 	int max, j, index;
 	int *counter, *temp;
 
-	if (size < 2)
+	if (size < 2 || array == NULL)
 		return;
 
 	max = array[0];
