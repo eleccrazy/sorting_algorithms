@@ -85,5 +85,4 @@ void recursive_helper(int *array, int low, int high, size_t size)
 void quick_sort(int *array, size_t size)
 {
 	recursive_helper(array, 0, size - 1, size);
-	print_array(array, size);
 }
