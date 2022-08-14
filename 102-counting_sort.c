@@ -15,7 +15,7 @@ void counting_sort(int *array, size_t size)
 	int max, j, index;
 	int *counter, *temp;
 
-	if (size < 2 || array == NULL)
+	if (size < 2)
 		return;
 
 	max = array[0];
@@ -25,9 +25,12 @@ void counting_sort(int *array, size_t size)
 		if (array[i] > max)
 			max = array[i];
 	}
-
 	counter = malloc(sizeof(int) * max + 1);
+	if (counter == NULL)
+		return;
 	temp = malloc(sizeof(int) * size);
+	if (temp == NULL)
+		return;
 
 	for (i = 0; i < size; i++)
 		counter[array[i]] += 1;
