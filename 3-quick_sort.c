@@ -32,21 +32,24 @@ void swapper(int *array, int a, int b)
 int pivot_finder(int *array, int l, int h, size_t size)
 {
 	int p_value = array[h];
-	int i = l, j;
+	int i = l, j, temp;
 
 	for (j = l; j < h; j++)
 	{
 		if (array[j] <= p_value)
 		{
-
+			temp = array[i];
 			swapper(array, i, j);
+			if (array[i] != temp)
+				print_array(array, size);
 			i++;
 		}
 	}
 
+	temp = array[i];
 	swapper(array, i, h);
-	print_array(array, size);
-
+	if (array[i] != temp)
+		print_array(array, size);
 	return (i);
 }
 
