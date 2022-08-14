@@ -12,8 +12,12 @@
 void counting_sort(int *array, size_t size)
 {
 	size_t i = 1;
-	int max = array[0], j, index;
+	int max, j, index;
 	int *counter, *temp;
+
+	if (size < 2)
+		return;
+	max = array[0];
 
 	for (; i < size; i++)
 	{
