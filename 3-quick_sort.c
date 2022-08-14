@@ -20,6 +20,7 @@ void swapper(int *array, int a, int b)
 /**
  * pivot_finder - Finds the pivot from the array.
  *
+ * @size: The size of the array.
  * @array: The array to be sorted.
  * @l: The lowest index
  * @h: The higherst index.
@@ -28,7 +29,7 @@ void swapper(int *array, int a, int b)
  *
  */
 
-int pivot_finder(int *array, int l, int h)
+int pivot_finder(int *array, int l, int h, size_t size)
 {
 	int p_value = array[h];
 	int i = l, j;
@@ -37,12 +38,14 @@ int pivot_finder(int *array, int l, int h)
 	{
 		if (array[j] <= p_value)
 		{
+
 			swapper(array, i, j);
 			i++;
 		}
 	}
 
 	swapper(array, i, h);
+	print_array(array, size);
 
 	return (i);
 }
@@ -64,8 +67,7 @@ void recursive_helper(int *array, int low, int high, size_t size)
 
 	if (low < high)
 	{
-		print_array(array, size);
-		p_index = pivot_finder(array, low, high);
+		p_index = pivot_finder(array, low, high, size);
 		recursive_helper(array, low, p_index - 1, size);
 		recursive_helper(array, p_index + 1, high, size);
 	}
