@@ -30,7 +30,10 @@ void counting_sort(int *array, size_t size)
 		return;
 	temp = malloc(sizeof(int) * size);
 	if (temp == NULL)
+	{
+		free(counter);
 		return;
+	}
 
 	for (i = 0; i < size; i++)
 		counter[array[i]] += 1;
