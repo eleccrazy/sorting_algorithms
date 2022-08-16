@@ -44,7 +44,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *temp, *traverse, *previous;
 
-	if (*list == NULL || (*list)->next == NULL)
+	if (!list || !(*list) || !(*list)->next)
 		return;
 
 	traverse = (*list)->next;
